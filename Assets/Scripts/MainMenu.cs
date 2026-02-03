@@ -12,15 +12,15 @@ public class MainMenu : MonoBehaviour
     private IEnumerator LoadSceneAfterDelay(string sceneName)
     {
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
     public void QuitApplication()
     {
-        if(UnityEditor.EditorApplication.isPlaying)
+      /*  if(UnityEditor.EditorApplication.isPlaying)
         {
             UnityEditor.EditorApplication.isPlaying = false;
-        }else
+        }else*/
         
         
         Application.Quit();
