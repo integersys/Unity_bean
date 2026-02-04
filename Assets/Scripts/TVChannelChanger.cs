@@ -1,31 +1,45 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TVChannelSwitcher : MonoBehaviour
 {
     [Header("UI pogas")]
     public Button onOffButton;
-    public Button nextChannelButton;
-    public Button prevChannelButton;
+    public Button nextChannelButton; // >>
+    public Button prevChannelButton; // <<
 
-    [Header("TV vizu?lie sl??i")]
+    [Header("TV vizuālie slāņi")]
     public GameObject darkness;     // melnums, kad TV OFF
     public GameObject idleScreen;   // static bilde/video
 
-    [Header("Kan?li (katrs k? atsevi�?a grupa/GameObject)")]
-    public GameObject[] channels;   // piem: Channel1Group, Channel2Group...
+    [Header("1. kanāls (objekti)")]
+    public GameObject cheatingWoman;
+    public GameObject secretLover;
+    public GameObject bed;
+    public GameObject mrBeanSad;
+    public GameObject channel1Background;
+
+    [Header("2. kanāls (objekti)")]
+    public GameObject channel2Background;
+    public GameObject tante;
+    public GameObject cat;
+    public GameObject lacis;
+
+    // Ja vēlāk gribi 3+ kanālus, varēsim atgriezties pie šī
+    [Header("Papildu kanāli (pašlaik netiek lietoti)")]
+    public GameObject[] extraChannels;
 
     private bool isTVOn = false;
-    private int currentChannelIndex = 0;
+
+    private enum TVState { Idle, Channel1, Channel2 }
+    private TVState state = TVState.Idle;
 
     void Start()
     {
-        // Piesaist?m pogas (ja nav piesietas Inspector)
         if (onOffButton != null) onOffButton.onClick.AddListener(TogglePower);
         if (nextChannelButton != null) nextChannelButton.onClick.AddListener(NextChannel);
         if (prevChannelButton != null) prevChannelButton.onClick.AddListener(PrevChannel);
 
-        // S?kum? TV ir OFF
         TurnOffTV();
     }
 
@@ -41,7 +55,7 @@ public class TVChannelSwitcher : MonoBehaviour
 
         if (darkness != null) darkness.SetActive(false);
 
-        // Reset: kad iesl?dz TV, vienm?r r?da static
+        // Kad ieslēdz TV — vienmēr static
         ShowIdleOnly();
 
         SetChannelButtonsInteractable(true);
@@ -51,11 +65,9 @@ public class TVChannelSwitcher : MonoBehaviour
     {
         isTVOn = false;
 
-        // TV OFF: melnums redzams
         if (darkness != null) darkness.SetActive(true);
 
-        // Pasl?pj idle + visus kan?lus
-        HideAllChannels();
+        HideAllContent();
         if (idleScreen != null) idleScreen.SetActive(false);
 
         SetChannelButtonsInteractable(false);
@@ -67,77 +79,111 @@ public class TVChannelSwitcher : MonoBehaviour
         if (prevChannelButton != null) prevChannelButton.interactable = value;
     }
 
-    private void HideAllChannels()
-    {
-        if (channels == null) return;
-        for (int i = 0; i < channels.Length; i++)
-        {
-            if (channels[i] != null) channels[i].SetActive(false);
-        }
-    }
-
-    private void ShowIdleOnly()
-    {
-        HideAllChannels();
-        if (idleScreen != null) idleScreen.SetActive(true);
-
-        // p?c iesl?g�anas m?s �neatrodamies kan?l?�
-        currentChannelIndex = 0;
-    }
+    // -------------------- Navigācija --------------------
 
     public void NextChannel()
     {
         if (!isTVOn) return;
-        if (channels == null || channels.Length == 0) return;
 
-        // ja pa�laik r?da Idle, tad ejam uz 1. kan?lu (index 0)
-        if (idleScreen != null && idleScreen.activeSelf)
+        // Idle >> -> Channel1
+        if (state == TVState.Idle)
         {
-            ShowChannel(0);
+            ShowChannel1();
             return;
         }
 
-        int next = GetActiveChannelIndex();
-        next = (next + 1) % channels.Length;
-        ShowChannel(next);
+        // Kanālos: jebkura poga pārslēdz uz otru kanālu
+        ToggleBetweenChannel1And2();
     }
 
     public void PrevChannel()
     {
         if (!isTVOn) return;
-        if (channels == null || channels.Length == 0) return;
 
-        // ja pa�laik r?da Idle, tad ejam uz p?d?jo kan?lu
-        if (idleScreen != null && idleScreen.activeSelf)
+        // Idle << -> Channel2
+        if (state == TVState.Idle)
         {
-            ShowChannel(channels.Length - 1);
+            ShowChannel2();
             return;
         }
 
-        int prev = GetActiveChannelIndex();
-        prev = (prev - 1 + channels.Length) % channels.Length;
-        ShowChannel(prev);
+        // Kanālos: jebkura poga pārslēdz uz otru kanālu
+        ToggleBetweenChannel1And2();
     }
 
-    private int GetActiveChannelIndex()
+    private void ToggleBetweenChannel1And2()
     {
-        // ja kaut kas nav akt?vs k?rt?gi, fallback uz currentChannelIndex
-        for (int i = 0; i < channels.Length; i++)
-        {
-            if (channels[i] != null && channels[i].activeSelf)
-                return i;
-        }
-        return currentChannelIndex;
+        if (state == TVState.Channel1) ShowChannel2();
+        else if (state == TVState.Channel2) ShowChannel1();
+        else ShowChannel1(); // drošības fallback
     }
 
-    private void ShowChannel(int index)
-    {
-        index = Mathf.Clamp(index, 0, channels.Length - 1);
-        currentChannelIndex = index;
+    // -------------------- Rādīšanas metodes --------------------
 
+    private void ShowIdleOnly()
+    {
+        HideAllContent();
+        if (idleScreen != null) idleScreen.SetActive(true);
+
+        state = TVState.Idle;
+    }
+
+    private void ShowChannel1()
+    {
+        HideAllContent();
         if (idleScreen != null) idleScreen.SetActive(false);
-        HideAllChannels();
 
-        if (channels[index] != null) channels[index].SetActive(true);
+        SetActiveSafe(cheatingWoman, true);
+        SetActiveSafe(secretLover, true);
+        SetActiveSafe(bed, true);
+        SetActiveSafe(mrBeanSad, true);
+        SetActiveSafe(channel1Background, true);
+
+        state = TVState.Channel1;
+    }
+
+    private void ShowChannel2()
+    {
+        HideAllContent();
+        if (idleScreen != null) idleScreen.SetActive(false);
+
+        SetActiveSafe(channel2Background, true);
+        SetActiveSafe(tante, true);
+        SetActiveSafe(cat, true);
+        SetActiveSafe(lacis, true);
+
+        state = TVState.Channel2;
+    }
+
+    // -------------------- Palīgfunkcijas --------------------
+
+    private void HideAllContent()
+    {
+        // Izslēdz 1. kanālu
+        SetActiveSafe(cheatingWoman, false);
+        SetActiveSafe(secretLover, false);
+        SetActiveSafe(bed, false);
+        SetActiveSafe(mrBeanSad, false);
+        SetActiveSafe(channel1Background, false);
+
+        // Izslēdz 2. kanālu
+        SetActiveSafe(channel2Background, false);
+        SetActiveSafe(tante, false);
+        SetActiveSafe(cat, false);
+        SetActiveSafe(lacis, false);
+
+        // Ja gadījumā kaut kas extra ir bijis ieslēgts, drošībai izslēdzam
+        if (extraChannels != null)
+        {
+            for (int i = 0; i < extraChannels.Length; i++)
+            {
+                if (extraChannels[i] != null) extraChannels[i].SetActive(false);
+            }
+        }
+    }
+
+    private void SetActiveSafe(GameObject obj, bool value)
+    {
+        if (obj != null) obj.SetActive(value);
     }
 }

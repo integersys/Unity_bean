@@ -1630,10 +1630,6 @@ MonoBehaviour:
   - {fileID: 4495422397181781673, guid: e9d2af3b7f8f9fe4eabb8ef43593624b, type: 3}
   sizeSlider: {fileID: 0}
   rotationSlider: {fileID: 0}
-  Darkness: {fileID: 779825734}
-  OnOff: {fileID: 1307044681}
-  KanalsUzPrieksu: {fileID: 960447695}
-  KanalsUzAtpakal: {fileID: 810487805}
 --- !u!4 &1310017467
 Transform:
   m_ObjectHideFlags: 0
@@ -1661,6 +1657,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817c153b0cb350b44876210c38d02c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onOffButton: {fileID: 1307044681}
+  nextChannelButton: {fileID: 960447695}
+  prevChannelButton: {fileID: 810487805}
+  darkness: {fileID: 779825734}
+  idleScreen: {fileID: 1995806458}
+  channels: []
 --- !u!1 &1410650470
 GameObject:
   m_ObjectHideFlags: 0
