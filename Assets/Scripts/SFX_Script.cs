@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SFX_Script : MonoBehaviour
 {
@@ -9,7 +9,14 @@ public class SFX_Script : MonoBehaviour
     {
         if (sfxSource.isPlaying)
             sfxSource.Stop();
-        sfxSource.PlayOneShot(audioClips[
-            ix]);
+
+        sfxSource.PlayOneShot(audioClips[ix]);
+    }
+
+    // Slideris sūta float (0..1)
+    public void SetSFXVolume(float v)
+    {
+        if (sfxSource != null)
+            sfxSource.volume = v;
     }
 }
