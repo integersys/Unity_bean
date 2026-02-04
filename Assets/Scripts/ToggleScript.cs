@@ -21,30 +21,9 @@ public class ToggleScript : MonoBehaviour
         toggleRight.GetComponent<Toggle>().interactable = value;
     }
 
-    //public void ToLeft()
-    //{
-    //    bean.transform.localScale = new Vector2(1, 1);
-    //}
-
-    //public void ToRight()
-    //{
-    //    bean.transform.localScale = new Vector2(-1, 1);
-    //}
-
-    ////Realizēt ToggleFlip metodi, kas apvieno ToLeft un ToRight
-    //public void ToggleFlip()
-    //{
-    //    if (toggleLeft.GetComponent<Toggle>().isOn)
-
-    //    {
-
-    //    }
-        
-    //}
-
     public void ToggleFlip(int x)
     {
-        bean.transform.localScale = new Vector2(x, 1); ;
+        bean.transform.localScale = new Vector2(x, 1);
     }
 
     public void ToggleTeddy(bool value)
@@ -56,6 +35,7 @@ public class ToggleScript : MonoBehaviour
     {
         car.SetActive(value);
     }
+
     public void ToggleGranny(bool value)
     {
         granny.SetActive(value);
