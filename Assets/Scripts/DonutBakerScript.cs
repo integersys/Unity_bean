@@ -8,6 +8,7 @@ public class DonutBakerScript : MonoBehaviour
     public float bakeInterval = 1.0f;
     float minPoz, maxPoz;
     Transform ovenTransform;
+    public float offset = 0.7f;
 
        
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,8 +28,8 @@ public class DonutBakerScript : MonoBehaviour
 
     IEnumerator Bake() {
         while (true) {
-            minPoz = ovenTransform.position.x - 40.0f;
-            maxPoz = ovenTransform.position.x + 40.0f;
+            minPoz = ovenTransform.position.x - offset;
+            maxPoz = ovenTransform.position.x + offset;
             float randPoz = Random.Range(minPoz, maxPoz);
             Vector2 spawnPoz = new Vector2(randPoz, ovenTransform.position.y);
             
