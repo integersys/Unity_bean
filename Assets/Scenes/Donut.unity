@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 434653728}
   - component: {fileID: 434653729}
   - component: {fileID: 434653730}
+  - component: {fileID: 434653732}
   - component: {fileID: 434653731}
   m_Layer: 0
   m_Name: Bean
@@ -412,7 +413,7 @@ Transform:
   m_GameObject: {fileID: 434653727}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.99, y: 0.28, z: 0}
+  m_LocalPosition: {x: -3.76, y: -0.083, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -507,8 +508,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.99}
-  m_Size: {x: 1.6, y: 3.9}
+  m_Offset: {x: 0, y: 1.776793}
+  m_Size: {x: 1.6000001, y: 4.0544987}
   m_Direction: 0
 --- !u!95 &434653731
 Animator:
@@ -532,6 +533,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &434653732
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434653727}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.9144056
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -588, y: -306}
+  m_AnchoredPosition: {x: -605, y: -304}
   m_SizeDelta: {x: 297.1092, y: 438.5655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!68 &1345374750
@@ -1786,7 +1823,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1483694361}
   - component: {fileID: 1483694363}
-  - component: {fileID: 1483694362}
   - component: {fileID: 1483694364}
   - component: {fileID: 1483694365}
   m_Layer: 0
@@ -1805,49 +1841,13 @@ Transform:
   m_GameObject: {fileID: 1483694360}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.969, y: -5, z: 0}
+  m_LocalPosition: {x: 3.946, y: -4.938, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 434653728}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1483694362
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483694360}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.01, y: 0.77}
-  m_Radius: 0.17
 --- !u!50 &1483694363
 Rigidbody2D:
   serializedVersion: 5
@@ -2119,8 +2119,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -224, y: -889}
-  m_SizeDelta: {x: 848.37, y: 25.86}
+  m_AnchoredPosition: {x: -234.35, y: -889}
+  m_SizeDelta: {x: 869.08, y: 25.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1823963850
 BoxCollider2D:

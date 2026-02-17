@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class DonutBakerScript : MonoBehaviour
@@ -24,8 +24,10 @@ public class DonutBakerScript : MonoBehaviour
             StopAllCoroutines();
     }
 
-    IEnumerator Bake() {          
-        while (true) {
+    IEnumerator Bake()
+    {
+        while (true)
+        {
             minPoz = ovenTransform.position.x - offset;
             maxPoz = ovenTransform.position.x + offset;
             float randPoz = Random.Range(minPoz, maxPoz);
