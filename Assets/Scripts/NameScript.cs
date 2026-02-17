@@ -1,11 +1,12 @@
-﻿using TMPro;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NameScript : MonoBehaviour
 {
     private string text;
-    private string[] input = {"Sveiks", "Jauku dienu", "Prieks Tevi redzēts", "Uz redzēšanos", "Jauki, ka atnāci", "Tiksimies rīt!"};
+    private string[] input = {"Sveiks", "Jauku dienu", "Prieks Tevi redzēt", "Uzredzēšanos", 
+        "Jauki, ka atnāci", "Tiksimiers rīt"};
     private int rand;
     public GameObject inputField;
     public GameObject textField;
@@ -17,8 +18,9 @@ public class NameScript : MonoBehaviour
         text = inputField.GetComponent<TMP_InputField>().text;
         textField.GetComponent<TMP_Text>().text = input[rand] + " " + text + "!";
 
+
         reverseTextToggle.GetComponent<Toggle>().interactable = true;
-        if(reverseTextToggle.GetComponent<Toggle>().isOn)
+        if (reverseTextToggle.GetComponent<Toggle>().isOn)
         {
             ReverseText();
         }

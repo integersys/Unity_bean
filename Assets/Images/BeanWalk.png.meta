@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1690ea4e8f155974f846adfd245d8848
+guid: 6ae9e6a7100af6b4ab492634e83d5fb9
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -150,10 +150,10 @@ TextureImporter:
       name: BeanWalk_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 7
         width: 182
-        height: 450
+        height: 449
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: BeanWalk_1
       rect:
         serializedVersion: 2
-        x: 210
+        x: 211
         y: 7
         width: 164
-        height: 448
+        height: 449
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,7 +194,7 @@ TextureImporter:
       name: BeanWalk_2
       rect:
         serializedVersion: 2
-        x: 400
+        x: 399
         y: 7
         width: 164
         height: 449
@@ -216,10 +216,10 @@ TextureImporter:
       name: BeanWalk_3
       rect:
         serializedVersion: 2
-        x: 590
-        y: 2
+        x: 593
+        y: 8
         width: 163
-        height: 452
+        height: 449
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +238,10 @@ TextureImporter:
       name: BeanWalk_4
       rect:
         serializedVersion: 2
-        x: 784
-        y: 0
+        x: 785
+        y: 3
         width: 171
-        height: 453
+        height: 449
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: BeanWalk_6
       rect:
         serializedVersion: 2
-        x: 954
-        y: 9
+        x: 952
+        y: 3
         width: 176
-        height: 446
+        height: 449
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,7 +282,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e99569d0dfcb74849b2b9c9674dbb8a8
+    spriteID: 857d2cfc04d81f74e82767883f03e957
     internalID: 0
     vertices: []
     indices: 

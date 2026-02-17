@@ -1,10 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class DragScript : MonoBehaviour, 
     IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
-    {
-
+{
     private RectTransform rectTransform;
     private Canvas canvas;
     SFX_Script sfxScript;
@@ -19,7 +18,7 @@ public class DragScript : MonoBehaviour,
     public void OnPointerDown(PointerEventData data)
     {
         Debug.Log("Izdarīts klikšķis uz velkamā objekta");
-        sfxScript.PlaySFX(0);
+        sfxScript.PlaySFX(2);
     }
 
     public void OnBeginDrag(PointerEventData data)
@@ -36,8 +35,8 @@ public class DragScript : MonoBehaviour,
             Screen.width - rectTransform.rect.width / 2);
 
         mousePosition.y = Mathf.Clamp(mousePosition.y,
-            0 + rectTransform.rect.height / 2,
-            Screen.height - rectTransform.rect.height / 2);
+           0 + rectTransform.rect.height / 2,
+           Screen.height - rectTransform.rect.height / 2);
 
         rectTransform.position = mousePosition;
     }

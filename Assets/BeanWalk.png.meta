@@ -335,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BeanWalk_0: -7902904074587302849
+      BeanWalk_1: -440176291309095272
+      BeanWalk_2: -2666547180333082246
+      BeanWalk_3: -4981490610186957435
+      BeanWalk_4: -2175591440106995546
+      BeanWalk_5: 8719420800323814707
+      BeanWalk_6: 841572444328698740
+      BeanWalk_7: -3841476151677940338
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

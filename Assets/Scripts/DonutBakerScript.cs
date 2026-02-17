@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DonutBakerScript : MonoBehaviour
@@ -10,7 +9,6 @@ public class DonutBakerScript : MonoBehaviour
     Transform ovenTransform;
     public float offset = 0.7f;
 
-       
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,13 +24,13 @@ public class DonutBakerScript : MonoBehaviour
             StopAllCoroutines();
     }
 
-    IEnumerator Bake() {
+    IEnumerator Bake() {          
         while (true) {
             minPoz = ovenTransform.position.x - offset;
             maxPoz = ovenTransform.position.x + offset;
             float randPoz = Random.Range(minPoz, maxPoz);
             Vector2 spawnPoz = new Vector2(randPoz, ovenTransform.position.y);
-            
+
             int donutIndex = Random.Range(0, donutPrefabs.Length);
             Instantiate(donutPrefabs[donutIndex], spawnPoz, Quaternion.identity, ovenTransform);
             yield return new WaitForSeconds(bakeInterval);

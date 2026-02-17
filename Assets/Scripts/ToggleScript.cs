@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ToggleScript : MonoBehaviour
@@ -20,7 +20,18 @@ public class ToggleScript : MonoBehaviour
         toggleLeft.GetComponent<Toggle>().interactable = value;
         toggleRight.GetComponent<Toggle>().interactable = value;
     }
+/*
+    public void ToLeft()
+    {
+        bean.transform.localScale = new Vector2(1, 1);
+    }
 
+    public void ToRight()
+    {
+        bean.transform.localScale = new Vector2(-1, 1);
+    }
+*/
+    // Realizēt ToggleFlip metodi, kas apvieno ToLeft un ToRight
     public void ToggleFlip(int x)
     {
         bean.transform.localScale = new Vector2(x, 1);
@@ -49,12 +60,14 @@ public class ToggleScript : MonoBehaviour
     public void ChangeRotation()
     {
         float rotationValue = rotationSlider.GetComponent<Slider>().value;
-        characterImage.transform.localRotation = Quaternion.Euler(0, 0, 360 * rotationValue);
+        characterImage.transform.localRotation = 
+                            Quaternion.Euler(0, 0, 360 * rotationValue);
     }
 
     public void ChangeSize()
     {
         float sizeValue = sizeSlider.GetComponent<Slider>().value;
-        characterImage.transform.localScale = new Vector2(1f * sizeValue, 1f * sizeValue);
+        characterImage.transform.localScale = 
+                            new Vector2(1f * sizeValue, 1f * sizeValue);
     }
 }

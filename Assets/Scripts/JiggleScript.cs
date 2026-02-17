@@ -1,7 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class JiggleScipt : MonoBehaviour
+public class JiggleScript : MonoBehaviour
 {
     [Range(0f, 1f)]
     public float power = 0.5f;
@@ -30,6 +29,7 @@ public class JiggleScipt : MonoBehaviour
     float scaleTimer;
     Vector2 baseScale;
 
+
     void Start()
     {
         basePosition = transform.localPosition;
@@ -37,18 +37,27 @@ public class JiggleScipt : MonoBehaviour
         baseScale = transform.localScale;
     }
 
-    private void Update()
+    void Update()
     {
         if (jigglePosition)
         {
             positionTimer += Time.deltaTime * postionFrequency;
-
             Vector2 offset = new Vector2(
                 Mathf.Sin(positionTimer) * positionJigAmount.x,
                 Mathf.Cos(positionTimer) * positionJigAmount.y
-                );
-
+            );
             transform.localPosition = basePosition + offset * power;
+        }
+
+        if (jiggleRotation)
+        {
+            rotationTimer += Time.deltaTime * rotationFrequency;
+            Vector3 offset = new Vector3(
+                Mathf.Sin(rotationTimer) * rotationJigAmount.x,
+                Mathf.Cos(rotationTimer) * rotationJigAmount.y,
+                Mathf.Sin(rotationTimer) * rotationJigAmount.z
+            );
+            transform.localRotation = baseRotation * Quaternion.Euler(offset * power);
         }
 
         if (jiggleScale)
@@ -57,5 +66,4 @@ public class JiggleScipt : MonoBehaviour
             transform.localScale = baseScale + scaleJigAmount * Mathf.Sin(scaleTimer) * power;
         }
     }
-
 }
