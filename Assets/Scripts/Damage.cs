@@ -1,23 +1,32 @@
 ﻿using UnityEngine;
 
-public class HeadHitboxDamage : MonoBehaviour
+public class Damage : MonoBehaviour
 {
     public HealthManager health;
+
+    public SFX_Script sfx;          // <-- SFX skripts
+    public int screamIndex = 5;    // <-- te ieliec index, kur ir scream.mp3
 
     void Start()
     {
         if (health == null)
             health = FindFirstObjectByType<HealthManager>();
+
+        if (sfx == null)
+            sfx = FindFirstObjectByType<SFX_Script>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Damage tikai no šiem tagiem
         if (other.CompareTag("Asteroid") || other.CompareTag("Weight"))
         {
-            health.TakeDamage(1);
+            // Scream skaņa
+            if (sfx != null)
+                sfx.PlaySFX(screamIndex);
 
-            // (opcija) iznīcināt objektu pēc trieciena, lai nav multi-hit
+            if (health != null)
+                health.TakeDamage(1);
+
             Destroy(other.gameObject);
         }
     }

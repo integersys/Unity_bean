@@ -2241,6 +2241,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1181c245fdfbe3c47b56420e17f4a8fb, type: 3}
   - {fileID: 8300000, guid: cc9887e1d4956fb4caa644dc80710044, type: 3}
   - {fileID: 8300000, guid: 28134c9957b4d184ead5db39bbe966a0, type: 3}
+  - {fileID: 8300000, guid: 2e88762c0b65afd488031eff7c50f282, type: 3}
 --- !u!114 &1404638845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2269,7 +2270,7 @@ MonoBehaviour:
   - {fileID: 708876776}
   - {fileID: 1561585546}
   - {fileID: 2004929152}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 1404638850}
 --- !u!114 &1404638847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2475,6 +2476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 1404638846}
+  sfx: {fileID: 1404638844}
+  screamIndex: 5
 --- !u!1 &1548920723
 GameObject:
   m_ObjectHideFlags: 0
