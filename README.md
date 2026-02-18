@@ -27,3 +27,28 @@ Turklāt, spēlētājs var arī izpētīt televizora sadaļu programmā.
    - [x] Atšķirīgi punktu vērtība attiecīgiem virtuļiem (Roza - 5, violetā - 10)
    - [x] Taimeris
    - [x] Skaņas efekts, kad lietotājs aiztiek objektu, kas nav virtulis
+     
+# Projekta bilžu apskate
+<p align="center">
+  <img src="README_Images/main.png" alt="Main Menu" width="700">
+  <br>
+  <sub>Main menu ekrāns</sub>
+</p>
+
+<p align="center">
+  <img src="README_Images/game.png" alt="Gameplay" width="700">
+  <br>
+  <sub>Spēles ekrāns (virtuļu ķeršana)</sub>
+</p>
+
+<p align="center">
+  <img src="README_Images/gameover.png" alt="Game Over" width="700">
+  <br>
+  <sub>Game Over / mēģināt vēlreiz ekrāns</sub>
+</p>
+
+<p align="center">
+  <img src="README_Images/tv.png" alt="TV Scene" width="700">
+  <br>
+  <sub>TV aina</sub>
+</p>
