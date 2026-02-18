@@ -5,6 +5,7 @@ public class DonutBakerScript : MonoBehaviour
 {
     public GameObject[] donutPrefabs;
     public float bakeInterval = 1.0f;
+    public Taimeris gameTimer;
     float minPoz, maxPoz;
     Transform ovenTransform;
     public float offset = 0.7f;
@@ -33,6 +34,10 @@ public class DonutBakerScript : MonoBehaviour
 
             if (mrBeanMovementScript != null)
                 mrBeanMovementScript.enabled = true;
+
+            if (gameTimer != null)
+                gameTimer.StartTimer();
+
 
             StartCoroutine(Bake());
         }
