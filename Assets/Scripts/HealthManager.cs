@@ -3,40 +3,45 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    [Header("Hearts UI (left->right)")]
-    public Image[] hearts; // 3 sirsniņas inspectorā (Heart1, Heart2, Heart3)
+    public Image[] hearts;
+    public GameManager gameManager;
 
-    public int maxHealth = 3;
-    private int currentHealth;
+    int hp;
 
     void Start()
     {
-        currentHealth = maxHealth;
-        RefreshHearts();
+        ResetHealth();
+
+        if (gameManager == null)
+            gameManager = FindFirstObjectByType<GameManager>();
+    }
+
+    public void ResetHealth()
+    {
+        hp = hearts.Length;
+        Refresh();
     }
 
     public void TakeDamage(int amount = 1)
     {
-        if (currentHealth <= 0) return;
+        if (hp <= 0) return;
 
-        currentHealth -= amount;
-        if (currentHealth < 0) currentHealth = 0;
+        hp -= amount;
+        if (hp < 0) hp = 0;
 
-        RefreshHearts();
+        Refresh();
 
-        if (currentHealth == 0)
+        if (hp == 0)
         {
-            Debug.Log("Game Over!");
-            // te vēlāk vari: stop movement, stop baking, show restart, utt.
+            if (gameManager != null)
+                gameManager.GameOver();
         }
     }
 
-    void RefreshHearts()
+    void Refresh()
     {
         for (int i = 0; i < hearts.Length; i++)
-        {
             if (hearts[i] != null)
-                hearts[i].enabled = (i < currentHealth);
-        }
+                hearts[i].enabled = (i < hp);
     }
 }

@@ -7,7 +7,9 @@ public class ObjectCatchScript : MonoBehaviour
     private Rigidbody2D rb;
     SFX_Script sfx;
 
-    public VirtuluSkaititajs donutCounter; // <-- pieliec
+    public VirtuluSkaititajs donutCounter;
+
+    public VirtuluVertibuSkaititajs punktuSkaititajs; // <-- JAUNS
 
     void Start()
     {
@@ -15,7 +17,10 @@ public class ObjectCatchScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         if (donutCounter == null)
-            donutCounter = FindFirstObjectByType<VirtuluSkaititajs>(); // auto atrod
+            donutCounter = FindFirstObjectByType<VirtuluSkaititajs>();
+
+        if (punktuSkaititajs == null) // <-- JAUNS
+            punktuSkaititajs = FindFirstObjectByType<VirtuluVertibuSkaititajs>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,9 +32,16 @@ public class ObjectCatchScript : MonoBehaviour
         {
             sfx.PlaySFX(4);
 
-            // +1 donut
             if (donutCounter != null)
                 donutCounter.AddDonut(1);
+
+            // --- JAUNS: pieskaita punktus atkarībā no donuta ---
+            VirtuluVertiba value = collision.GetComponent<VirtuluVertiba>();
+            int pts = (value != null) ? value.points : 0;
+
+            if (punktuSkaititajs != null)
+                punktuSkaititajs.AddPoints(pts);
+            // ---------------------------------------------------
 
             Destroy(collision.gameObject);
             transform.localScale += new Vector3(sizeIncrease, sizeIncrease, 0);

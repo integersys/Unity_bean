@@ -12,6 +12,13 @@ public class VirtuluSkaititajs : MonoBehaviour
         Refresh();
     }
 
+
+    public void ResetCount()
+    {
+        count = 0;
+        Refresh();
+    }
+
     public void AddDonut(int amount = 1)
     {
         count += amount;
